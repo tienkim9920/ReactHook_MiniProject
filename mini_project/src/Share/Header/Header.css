@@ -1,0 +1,45 @@
+
+.Header {
+    background: transparent;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: .8rem 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(255, 255, 255, .95);
+    z-index: 999;
+}
+
+.Logo_title{
+    height: 4rem;
+    width: 4rem;
+}
+
+.Header_title p {
+    font-size: 1.6rem;
+    padding-left: .8rem;
+    margin-top: .7rem;
+    text-transform: uppercase;
+    color: #5f5f5f;
+    font-weight: bold;
+    letter-spacing: .2rem;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.Navigation li{
+    display: inline;
+    list-style: none;
+    padding: 1rem;
+    margin-top: .4rem;
+    text-transform: uppercase;
+}
+
+.Navigation li a{
+    text-decoration: none;
+    color: #5f5f5f;
+    font-weight: 500;
+}
+
+.Navigation li a:hover{
+    border-bottom: 4px solid #00ccff;
+    padding-bottom: .4rem;
+}
