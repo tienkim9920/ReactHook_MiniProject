@@ -3,3 +3,10 @@
     padding: 1rem 0;
     height: 50rem;
 }
+
+.background_Color{
+    width: 13rem;
+    height: 13rem;
+    background-color: red;
+    margin-top: 1rem;
+}

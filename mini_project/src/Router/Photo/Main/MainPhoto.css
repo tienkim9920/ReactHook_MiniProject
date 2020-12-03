@@ -1,0 +1,110 @@
+
+.add_photo{
+    text-align: center;
+    padding: 3rem 0 1rem 0;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.link_AddPhoto{
+    color: #ffffff;
+    background-color: black;
+    padding: .6rem 2.2rem;
+    transition: all .5s ease-in-out;
+    display: inline-block;
+    border-radius: .5rem;
+}
+
+.link_AddPhoto:hover{
+    color: #ffffff;
+    transform: translateY(-.3rem);
+}
+
+.background_Image{
+    width: 23rem;
+    height: 15rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+}
+
+.group_Image{
+    height: 40rem;
+}
+
+.edit_Photo{
+    margin-top: 2rem;
+    max-width: 40% !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.card{
+    overflow: hidden;
+    border-radius: .5rem;
+    width: 23rem;
+    height: 15rem;
+}
+
+.group_content{
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+}
+
+.card:hover > .group_content{
+    opacity: 1;
+    visibility: visible;
+}
+
+.card:hover > .background_Image{
+    filter: brightness(60%);
+    transform: scale(1.2);
+}
+
+.title_content{
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 2rem 0rem 2rem;
+}
+
+.edit_content{
+    text-align: center;
+}
+
+.edit_content a{
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: .9rem;
+}
+
+.edit_content a:first-child:hover{
+    background-color: #ffffff;
+    color: black;
+}
+
+.edit_content a:last-child:hover{
+    background-color: red;
+    color: #ffffff;
+}
+
+.edit_content a:first-child{
+    color: #ffffff;
+    padding: 0.3rem 3rem;
+    border: 1px solid #ffffff;
+}
+
+.edit_content a:last-child{
+    color: red;
+    padding: 0.3rem 2.3rem;
+    border: 1px solid red;
+}
