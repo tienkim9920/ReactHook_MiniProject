@@ -18,7 +18,7 @@ function Photo(props) {
 
     return (
         <div>
-            <Banner title="This Is Page Photo" backgroundUrl={Image.BG_4}/>
+            <Banner title="This Is Page" backgroundUrl={Image.BG_2_2}/>
 
             <Switch>
                 <Route exact path={`${match.url}`} component={MainPhoto}/>

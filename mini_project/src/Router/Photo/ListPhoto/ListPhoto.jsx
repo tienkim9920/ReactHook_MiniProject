@@ -39,7 +39,7 @@ function ListPhoto(props) {
 
     return (
         <div className="container group_Image">
-            <div className="row justify-content-center">
+            <div className="row justify-content-center padding_Row">
                 {listPhoto && listPhoto.map(value => {
                     return (
                         <div className="col-6 edit_Photo" key={value.id}>

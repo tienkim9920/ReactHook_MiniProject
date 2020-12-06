@@ -1,0 +1,123 @@
+
+.title_Category{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 2rem 0 1rem 0;
+    color: #00ccff;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.wrapper_Category{
+    background-color: #F0F3F7;
+    padding: 3rem 1rem;
+}
+
+.group_Category{
+    margin: auto;
+    /* height: 60rem; */
+    width: 80%;
+    background-color: #ffffff;
+    margin-top: 4rem;
+    padding: 2rem 2rem 4rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 10px 10px #e6e6e6, -2px -2px 10px 10px #e6e6e6;
+}
+
+.btn_category{
+    padding: 2rem 2rem 3rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.group_Category p {
+    padding: 2rem 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.card_category{
+    width: 17rem;
+    margin: 1rem 3rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.image_category{
+    width: 17rem;
+    height: 17rem;
+    border-radius: 1rem;
+    transition: all .5s ease-in-out;
+}
+
+.image_card{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.title_card{
+    margin-top: .2rem;
+    color: rgb(104, 104, 104);
+    font-weight: bold;
+}
+
+.content_card{
+    padding-top: 2rem;
+}
+
+.card_category{
+    cursor: pointer;
+    padding: 0rem 0rem 3rem 0;
+    transition: all .5s ease-in-out;
+}
+
+.card_category:hover {
+    box-shadow: 1px 1px 5px 5px #e6e6e6, -1px -1px 5px 5px #e6e6e6;
+}
+
+.card_category:hover .image_category{
+    transform: scale(1.2);
+}
+
+.Click_category{
+    padding: .4rem 1.6rem;
+    color: #00ccff;
+    border-radius: .5rem;
+    border: 1px solid #00ccff;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 .5rem;
+    font-size: 1.2rem;
+    transition: all .5s ease-in-out;
+}
+
+.btn_category a:hover{
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #00ccff;
+    border-radius: .5rem;
+}
+
+.Section_Category{
+    animation-name: fadeIn;
+    animation-duration: .9s;
+    animation-timing-function: ease-in-out; 
+}
+
+.hover_link_product:hover{
+    text-decoration: none;
+}
+
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: scale(.8);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}

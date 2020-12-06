@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Banner from '../../Share/Banner/Banner';
 import Image from '../../Global/Image'
+import Category from './Category/Category';
 
 
 Home.propTypes = {
@@ -9,11 +10,13 @@ Home.propTypes = {
 };
 
 function Home(props) {
+
     return (
         <div>
-            <Banner title="MEN'S SUIT" backgroundUrl={Image.BG_4}/>
+            <Banner title="MEN'S SUIT" backgroundUrl={Image.BG_2_2}/>
 
-            <h1>This is Page Home</h1>
+            <Category />
+
         </div>
     );
 }
