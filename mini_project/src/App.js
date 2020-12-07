@@ -6,6 +6,7 @@ import Home from './Router/Home/Home';
 import Photo from './Router/Photo/Photo';
 import ProductAPI from './Api/ProductAPI';
 import Detail from './Router/Detail/Detail';
+import Cart from './Router/Cart/Cart';
 
 function App() {
 
@@ -44,6 +45,8 @@ function App() {
           <Route path='/photo' component={Photo}/>
           
           <Route path='/detail' component={Detail}/>
+
+          <Route path='/cart' component={Cart}/>
         </Switch>
 
 

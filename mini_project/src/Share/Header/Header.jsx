@@ -27,9 +27,11 @@ function Header(props) {
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/photo">Photo</Link></li>
                         <div className="right-menu">
-                            <div className="cart-btn">
-                                <i className='bx bx-cart-alt'></i>
-                            </div>
+                            <Link to="/cart" style={{textDecoration: 'none'}}>
+                                <div className="cart-btn">
+                                    <i className='bx bx-cart-alt'></i>
+                                </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

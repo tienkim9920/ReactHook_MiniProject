@@ -6,6 +6,7 @@ import Background2 from '../Asset/Image/bg2.jpg';
 import Background2_2 from '../Asset/Image/bg2_2.jpg';
 import Background3 from '../Asset/Image/bg3.jpg';
 import Background4 from '../Asset/Image/bg4.jpeg';
+import Background6 from '../Asset/Image/BG_6.png';
 
 const Image = {
     LOGO_1: Logo1,
@@ -15,7 +16,8 @@ const Image = {
     BG_2: Background2,
     BG_2_2: Background2_2,
     BG_3: Background3,
-    BG_4: Background4
+    BG_4: Background4,
+    BG_6: Background6
 }
 
 export default Image

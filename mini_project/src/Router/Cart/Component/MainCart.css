@@ -1,0 +1,52 @@
+
+.cart-box-main{
+    padding: 70px 0px;
+}
+
+.wapper_cart{
+    padding: 5rem 0 3rem 0;
+}
+
+.table-main table thead{
+    background: #00ccff;
+    color: #ffffff;
+}
+.table-main .table thead th{
+    font-size: 18px;
+    text-align: center;
+}
+.table-main table td.thumbnail-img{
+    width: 120px;
+}
+.table-main table td{
+    vertical-align: middle;
+    font-size: 16px;
+    text-align: center;
+}
+
+.quantity-box input{
+    width: 40px;
+    border: 2px solid #00ccff;
+    text-align: center;
+    color: #00ccff;
+}
+.quantity-box input:focus{
+    border-color: #b0b435;
+}
+
+.name-pr a {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.remove-pr a{
+    font-weight: bold;
+}
+
+.price-pr p {
+    font-weight: bold;
+    color: #00ccff;
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+
