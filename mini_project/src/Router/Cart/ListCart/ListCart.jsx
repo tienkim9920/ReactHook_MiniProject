@@ -6,25 +6,21 @@ import queryString from 'query-string';
 
 ListCart.propTypes = {
     ListCart: PropTypes.array,
-    onUpdateCount: PropTypes.func
+    onUpdateCount: PropTypes.func,
+    onDeleteCart: PropTypes.func
 };
 
 ListCart.defaultProps = {
     ListCart: [],
-    onUpdateCount: null
+    onUpdateCount: null,
+    onDeleteCart: null
 }
 
 function ListCart(props) {
 
-    const { ListCart, onUpdateCount } = props
+    const { ListCart, onUpdateCount, onDeleteCart } = props
 
     const [count, setCount] = useState('1')
-
-    const [update, setUpdate] = useState({
-        idUser: 'user123',
-        idProduct: '5fca45495b27480864e3b2e3',
-        count: '6'
-    })
 
     function handlerChangeText(e) {
 
@@ -33,37 +29,21 @@ function ListCart(props) {
 
     }
 
-    useEffect(() => {
-
-        const fetchData = async () => {
-            
-            const params = {
-                idProduct: update.idProduct,
-                count: update.count
-            }
-
-            const query = queryString.stringify(params)
-
-            const newQuery = update.idUser + "?" + query
-
-            const response = await CartsAPI.patchUpdateCount(newQuery)
-            console.log(response)
-
-        }
-
-        fetchData()
-
-    }, [])
-
-
-    //Nó sẽ lấy idUser và idPro và count cần update để gửi lên server
+    
     const handlerDown = (getIdUser, getIdProduct, getCount) => {
 
         if (!onUpdateCount){
             return
         }
 
-        // onUpdateCount(getIdUser, getIdProduct, getCount)
+        if (getCount === 1){
+            return
+        }
+
+        //Trước khi trả dữ liệu về component cha thì phải thay đổi biến count
+        const updateCount = parseInt(getCount) - 1
+
+        onUpdateCount(getIdUser, getIdProduct, updateCount)
 
     }
 
@@ -73,10 +53,21 @@ function ListCart(props) {
             return
         }
 
-        // onUpdateCount(getIdUser, getIdProduct, getCount)
+        //Trước khi trả dữ liệu về component cha thì phải thay đổi biến count
+        const updateCount = parseInt(getCount) + 1
+
+        onUpdateCount(getIdUser, getIdProduct, updateCount)
 
     }
 
+    const handlerDelete = (getUser, getProduct) => {
+
+        if (!onDeleteCart){
+            return
+        }
+
+        onDeleteCart(getUser, getProduct)
+    }
 
     return (
         <div className="container">
@@ -90,6 +81,7 @@ function ListCart(props) {
                                     <th>Name</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
+                                    <th>Sub Total</th>
                                     <th>Remove</th>
                                 </tr>
                             </thead>
@@ -117,8 +109,11 @@ function ListCart(props) {
                                                 &nbsp;
                                                 <button onClick={() => handlerUp(value.idUser, value.idProduct, value.count)}>+</button>
                                             </td>
+                                            <td className="price-pr">
+                                                <p>{value.price * value.count} $</p>
+                                            </td>
                                             <td className="remove-pr">
-                                                <a className="btn btn-danger">X</a>
+                                                <a className="btn btn-danger" onClick={() => handlerDelete(value.idUser, value.idProduct)}>X</a>
                                             </td>
                                         </tr>
                                     ))

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Banner from '../../Share/Banner/Banner';
 import Image from '../../Global/Image'
 import Category from './Category/Category';
+import Session from 'react-session-api'
 
 
 Home.propTypes = {
@@ -10,6 +11,7 @@ Home.propTypes = {
 };
 
 function Home(props) {
+    
 
     return (
         <div>

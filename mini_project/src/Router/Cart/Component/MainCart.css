@@ -14,7 +14,11 @@
 .table-main .table thead th{
     font-size: 18px;
     text-align: center;
+
 }
+
+
+
 .table-main table td.thumbnail-img{
     width: 120px;
 }

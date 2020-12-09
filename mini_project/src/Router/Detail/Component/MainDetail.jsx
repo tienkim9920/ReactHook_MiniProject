@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import ClothesAPI from '../../../Api/ClothesAPI';
 import './MainDetail.css'
 import alertify from 'alertifyjs'
+import CartsAPI from '../../../Api/CartsAPI';
+import queryString from 'query-string';
+import { useSelector } from 'react-redux';
 
 MainDetail.propTypes = {
 
@@ -13,11 +16,19 @@ function MainDetail(props) {
 
     const { id } = useParams()
 
+    const idUser = useSelector(state => state.Session.idUser)
+
     console.log(id)
 
     const [detail, setDetail] = useState({})
 
     const [quality, setQuality] = useState('1')
+
+    const [addCart, setAddCart] = useState({
+        idProduct: '',
+        idUser: '',
+        count: ''
+    })
 
     const handlerDown = () => {
 
@@ -41,8 +52,17 @@ function MainDetail(props) {
 
     const handlerAddCart = () => {
 
+        //Để thay đổi state addCart và load lại hàm useEffect
+        setAddCart({
+            idProduct: id,
+            idUser: idUser, //Tạm thời set cứng vì chưa có session
+            count: quality
+        })
+
         alertify.set('notifier','position', 'bottom-left');
         alertify.success('Bạn Đã Thêm Hàng Thành Công!');
+
+        setQuality('1')
 
     }
 
@@ -58,6 +78,25 @@ function MainDetail(props) {
 
         const fetchData = async () => {
 
+            //Lần đầu sẽ không thực hiện insert được vì addCart = ''
+            if (addCart.idProduct !== '') {
+
+                //Nó sẽ lấy idUser và idPro và count cần update để gửi lên server
+                const params = {
+                    idUser: addCart.idUser,
+                    count: addCart.count
+                }
+
+                const query = queryString.stringify(params)
+
+                const newQuery = addCart.idProduct + "?" + query
+
+                console.log(newQuery)
+
+                const response = await CartsAPI.postCart(newQuery)
+                console.log(response)
+            }
+
             const response = await ClothesAPI.getDetail(id)
             console.log(response)
 
@@ -67,7 +106,7 @@ function MainDetail(props) {
 
         fetchData()
 
-    }, [])
+    }, [addCart])
 
     return (
         <div className="container">

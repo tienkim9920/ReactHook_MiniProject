@@ -10,6 +10,16 @@ const CartsAPI = {
     patchUpdateCount: (query) => {
         const url = `/carts/${query}`
         return axiosClient.patch(url)
+    },
+
+    postCart: (query) => {
+        const url = `/carts/${query}`
+        return axiosClient.post(url)
+    },
+
+    deleteCart: (query) => {
+        const url = `/carts/${query}`
+        return axiosClient.delete(url)
     }
 
 }

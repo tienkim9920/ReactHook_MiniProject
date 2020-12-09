@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Header from './Share/Header/Header';
@@ -7,6 +7,8 @@ import Photo from './Router/Photo/Photo';
 import ProductAPI from './Api/ProductAPI';
 import Detail from './Router/Detail/Detail';
 import Cart from './Router/Cart/Cart';
+import SignIn from './Router/Auth/SignIn';
+import SignUp from './Router/Auth/SignUp';
 
 function App() {
 
@@ -47,6 +49,11 @@ function App() {
           <Route path='/detail' component={Detail}/>
 
           <Route path='/cart' component={Cart}/>
+
+          <Route path='/login' component={SignIn} />
+          
+          <Route path='/signup' component={SignUp}/>
+
         </Switch>
 
 
