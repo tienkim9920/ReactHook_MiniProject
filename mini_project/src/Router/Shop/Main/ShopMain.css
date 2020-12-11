@@ -1,0 +1,85 @@
+
+.wrapper_shop{
+    width: 100%;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper_shop h1{
+    padding: 3rem 0 2rem 0;
+    color: #00ccff;
+}
+
+.wrapper_items{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.pagination button{
+    outline: #00ccff;
+    background-color: #00ccff;
+    color: #ffffff;
+    border: #00ccff;
+    padding: .5rem 1.2rem;
+}
+
+.pagination .page_next{
+    padding: .5rem 2rem;
+}
+
+.pagination button:hover{
+    background-color: #038eb1;
+    transition: all .5s ease-in-out;
+}
+
+.pagination .page_count{
+    outline: #00ccff;
+    background-color: #ffffff;
+    color: #00ccff;
+    border: 1px solid #00ccff;
+    padding: .5rem 1.2rem;
+    margin: 0 .1rem;
+}
+
+.txt_search{
+    width: 30%;
+    color: #00ccff !important;
+    border: 1px solid #00ccff;
+    padding: .4rem .8rem;
+}
+
+.txt_search::placeholder{
+    color: #00ccff;
+}
+
+.pagination .page_count:hover{
+    background-color: #00ccff;
+    color: #ffffff;
+}
+
+.padding_Seach{
+    padding-bottom: 4rem;
+}
+
+@media screen and (max-width: 900px){
+    .wrapper_items{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .wrapper_items{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}

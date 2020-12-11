@@ -57,13 +57,16 @@ function Header(props) {
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/photo">Photo</Link></li>
                         {loginUser}
-                        <div className="right-menu">
-                            <Link to={`/cart/${idUser}`} style={{textDecoration: 'none'}}>
-                                <div className="cart-btn">
-                                    <i className='bx bx-cart-alt'></i>
-                                </div>
-                            </Link>
-                        </div>
+                        {
+                            idUser && 
+                            <div className="right-menu">
+                                <Link to={`/cart/${idUser}`} style={{textDecoration: 'none'}}>
+                                    <div className="cart-btn">
+                                        <i className='bx bx-cart-alt'></i>
+                                    </div>
+                                </Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

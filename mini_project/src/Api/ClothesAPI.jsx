@@ -15,6 +15,11 @@ const ClothesAPI = {
     getDetail: (id) => {
         const url = `/clothes/detail/${id}`
         return axiosClient.get(url)
+    },
+
+    getPagination: (query) => {
+        const url = `/clothes/page/${query}`
+        return axiosClient.get(url)
     }
 }
 

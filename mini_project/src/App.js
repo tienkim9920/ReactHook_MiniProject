@@ -9,6 +9,7 @@ import Detail from './Router/Detail/Detail';
 import Cart from './Router/Cart/Cart';
 import SignIn from './Router/Auth/SignIn';
 import SignUp from './Router/Auth/SignUp';
+import Shop from './Router/Shop/Shop';
 
 function App() {
 
@@ -53,6 +54,8 @@ function App() {
           <Route path='/login' component={SignIn} />
           
           <Route path='/signup' component={SignUp}/>
+
+          <Route path='/shop' component={Shop}/>
 
         </Switch>
 

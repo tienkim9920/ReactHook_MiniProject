@@ -52,6 +52,12 @@ function MainDetail(props) {
 
     const handlerAddCart = () => {
 
+        if (!sessionStorage.getItem('idUser')){
+            alertify.set('notifier','position', 'bottom-left');
+            alertify.success('Vui Lòng Kiểm Tra Đăng Nhập!');
+            return
+        }
+
         //Để thay đổi state addCart và load lại hàm useEffect
         setAddCart({
             idProduct: id,
