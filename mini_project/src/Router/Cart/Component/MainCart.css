@@ -1,4 +1,8 @@
 
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
 .cart-box-main{
     padding: 70px 0px;
 }
@@ -18,7 +22,6 @@
 }
 
 
-
 .table-main table td.thumbnail-img{
     width: 120px;
 }
@@ -35,7 +38,7 @@
     color: #00ccff;
 }
 .quantity-box input:focus{
-    border-color: #b0b435;
+    border-color: #00ccff;
 }
 
 .name-pr a {
@@ -54,3 +57,45 @@
     margin-top: 1rem;
 }
 
+.btn_checkout{
+    padding: 1rem 0 3rem 0;
+}
+
+.btn_checkout button{
+    background-color: #00ccff;
+    color: #ffffff;
+    outline: #00ccff;
+    padding: .6rem 6rem;
+    border: #00ccff;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    transition: all .5s ease-in-out;
+}
+
+.btn_checkout button:hover{
+    background-color: #019fc7; 
+    color: #ffffff;
+}
+
+.h3_total{
+    color: gray;
+}
+
+.wrapper_order{
+    margin: auto !important;
+}
+
+.btn_order{
+    background-color: #00ccff;
+    color: #ffffff;
+    outline: #00ccff;
+    padding: .6rem 6rem;
+    border: #00ccff;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    transition: all .5s ease-in-out;
+}
+
+.padding_order{
+    padding: 4rem 3rem 3rem 3rem;
+}

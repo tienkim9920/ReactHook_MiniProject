@@ -4,6 +4,7 @@ import Banner from '../../Share/Banner/Banner';
 import Image from '../../Global/Image';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import MainCart from './Component/MainCart';
+import Order from './Component/Order';
 
 Cart.propTypes = {
     
@@ -17,6 +18,8 @@ function Cart(props) {
 
             <Switch>
                 <Route exact path="/cart/:id" component={MainCart} />
+
+                <Route path="/cart/:id/order" component={Order} />
             </Switch>
         </div>
 

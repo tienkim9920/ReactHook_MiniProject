@@ -9,7 +9,7 @@ const AccountsAPI = {
     },
 
     postAccounts: (query) => {
-        const url = `/accounts/${query}`
+        const url = `/accounts/signup/${query}`
         return axiosClient.post(url)
     }
 

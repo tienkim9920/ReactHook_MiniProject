@@ -85,14 +85,3 @@
     color: #00ccff;
     outline: #00ccff;
 }
-
-.alertify-notifier {
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-.ajs-message{
-    background-color: #00ccff !important;
-    width: 20rem !important;
-}

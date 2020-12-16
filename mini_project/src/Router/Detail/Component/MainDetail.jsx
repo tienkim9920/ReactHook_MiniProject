@@ -6,7 +6,8 @@ import './MainDetail.css'
 import alertify from 'alertifyjs'
 import CartsAPI from '../../../Api/CartsAPI';
 import queryString from 'query-string';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartTemp } from '../../../Redux/action/ActionCartTemp';
 
 MainDetail.propTypes = {
 
@@ -16,9 +17,21 @@ function MainDetail(props) {
 
     const { id } = useParams()
 
-    const idUser = useSelector(state => state.Session.idUser)
+    const dispatch = useDispatch()
+
+    //Get IdUser từ redux khi user đã đăng nhập
+    let idUser = useSelector(state => state.Session.idUser)
+
+    //Get idtemp từ redux khi user chưa đăng nhập
+    let idTemp = useSelector(state => state.CartTemp.idTemp)
+
+    //Get listCart từ redux khi user chưa đăng nhập
+    let listCart = useSelector(state => state.CartTemp.listCart)
 
     console.log(id)
+    console.log(idUser)
+    console.log(idTemp)
+    console.log(listCart)
 
     const [detail, setDetail] = useState({})
 
@@ -52,18 +65,33 @@ function MainDetail(props) {
 
     const handlerAddCart = () => {
 
-        if (!sessionStorage.getItem('idUser')){
-            alertify.set('notifier','position', 'bottom-left');
-            alertify.success('Vui Lòng Kiểm Tra Đăng Nhập!');
-            return
+        //Kiểm tra phiên đăng nhập của user
+        //Nếu có session của user và không có session
+        if (sessionStorage.getItem('idUser')){
+            //Để thay đổi state addCart và load lại hàm useEffect
+            setAddCart({
+                idProduct: id,
+                idUser: idUser,
+                count: quality
+            })
+        }else{
+
+            //Nếu không có session thì dữ liệu sẽ được lưu tạm vào Redux
+            const dataRedux = {
+                _id: Math.random().toString(),
+                idUser: idTemp,
+                idProduct: id,
+                name: detail.name,
+                image: detail.image,
+                price: detail.price,
+                count: quality
+            }
+
+            const action = addCartTemp(dataRedux)
+            dispatch(action)
         }
 
-        //Để thay đổi state addCart và load lại hàm useEffect
-        setAddCart({
-            idProduct: id,
-            idUser: idUser, //Tạm thời set cứng vì chưa có session
-            count: quality
-        })
+
 
         alertify.set('notifier','position', 'bottom-left');
         alertify.success('Bạn Đã Thêm Hàng Thành Công!');

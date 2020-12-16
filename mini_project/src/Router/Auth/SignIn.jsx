@@ -5,8 +5,10 @@ import Image from '../../Global/Image';
 import AccountsAPI from '../../Api/AccountsAPI';
 import { Link, Redirect } from 'react-router-dom';
 import { addSession } from '../../Redux/action/ActionSession';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './Auth.css'
+import CartsAPI from '../../Api/CartsAPI';
+import queryString from 'query-string'
 
 
 SignIn.propTypes = {
@@ -14,6 +16,8 @@ SignIn.propTypes = {
 };
 
 function SignIn(props) {
+
+    const listCart = useSelector(state => state.CartTemp.listCart)
 
     const [accounts, setAccounts] = useState([])
 
@@ -25,8 +29,11 @@ function SignIn(props) {
 
     const [redirect, setRedirect] = useState(false)
 
+    const [checkPush, setCheckPush] = useState(false)
+
     const dispatch = useDispatch()
 
+    //Hàm này để lấy tất cả các account của User
     useEffect(() => {
 
         //Gọi API lấy tất cả các Accounts
@@ -70,11 +77,11 @@ function SignIn(props) {
                 //Sau khi đăng nhập thành công nó sẽ tạo ra 1 session
                 sessionStorage.setItem('idUser', account._id)
                 
-                //Và sau đó đưa data vào redux
+                //Và sau đó đưa idUser vào redux
                 const action = addSession(sessionStorage.getItem('idUser'))
                 dispatch(action)
 
-                setRedirect(true)
+                setCheckPush(true)
             }
 
         }else{
@@ -83,6 +90,40 @@ function SignIn(props) {
         }
 
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            //Lần đầu sẽ không thực hiện insert được vì addCart = ''
+            if (checkPush === true) {
+
+                for (let i = 0; i < listCart.length; i++){
+
+                    //Nó sẽ lấy idUser và idPro và count cần update để gửi lên server
+                    const params = {
+                        idUser: sessionStorage.getItem('idUser'),
+                        count: listCart[i].count
+                    }
+
+                    const query = queryString.stringify(params)
+
+                    const newQuery = listCart[i].idProduct + "?" + query
+
+                    console.log(newQuery)
+
+                    const response = await CartsAPI.postCart(newQuery)
+                    console.log(response)
+
+                }
+
+                setRedirect(true)
+            }
+
+        }
+
+        fetchData()
+
+    }, [checkPush])
 
 
     return (

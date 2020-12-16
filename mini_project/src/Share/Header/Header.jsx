@@ -8,6 +8,7 @@ import SignInLink from '../NavUser/SignInLink';
 import SignOutLink from '../NavUser/SignOutLink';
 import { useDispatch, useSelector } from 'react-redux';
 import { addSession } from '../../Redux/action/ActionSession';
+import { addIdTemp } from '../../Redux/action/ActionCartTemp';
 
 Header.propTypes = {
     userLogin: PropTypes.string
@@ -27,18 +28,33 @@ function Header(props) {
     if (sessionStorage.getItem('idUser')){
         const action = addSession(sessionStorage.getItem('idUser'))
         dispatch(action)
+    }else{
+        //Đưa idTemp vào Redux temp để tạm lưu trữ
+        sessionStorage.setItem('idTemp', 'abc999')
+        const action = addIdTemp(sessionStorage.getItem('idTemp'))
+        dispatch(action)
     }
 
+    //Get IdUser từ redux khi user đã đăng nhập
     var idUser = useSelector(state => state.Session.idUser)
 
+    //Get idtemp từ redux khi user chưa đăng nhập
+    var idTemp = useSelector(state => state.CartTemp.idTemp)
+
     console.log(idUser)
+
+    console.log(idTemp)
 
     var loginUser
 
     if (!idUser){
         loginUser = <SignInLink />      
     }else{
-        loginUser = <SignOutLink />
+        if (!sessionStorage.getItem('idUser')){
+            loginUser = <SignInLink /> 
+        }else{
+            loginUser = <SignOutLink />
+        }
     }
 
 
@@ -57,16 +73,19 @@ function Header(props) {
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/photo">Photo</Link></li>
                         {loginUser}
-                        {
-                            idUser && 
-                            <div className="right-menu">
-                                <Link to={`/cart/${idUser}`} style={{textDecoration: 'none'}}>
-                                    <div className="cart-btn">
-                                        <i className='bx bx-cart-alt'></i>
-                                    </div>
-                                </Link>
-                            </div>
-                        }
+                        <div className="right-menu">
+                            <Link
+                                
+                                //Nếu user đã đăng nhập thì sẽ Link để cart User
+                                //Nếu user chưa đăng nhập thì sẽ Link đển idTemp để lấy dữ liệu cart trong redux
+                                to={ sessionStorage.getItem('idUser') ? `/cart/${idUser}` : `/cart/${idTemp}`} 
+                                style={{textDecoration: 'none'}}
+                                >
+                                <div className="cart-btn">
+                                    <i className='bx bx-cart-alt'></i>
+                                </div>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
