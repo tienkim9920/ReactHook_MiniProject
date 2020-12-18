@@ -10,6 +10,7 @@ import Cart from './Router/Cart/Cart';
 import SignIn from './Router/Auth/SignIn';
 import SignUp from './Router/Auth/SignUp';
 import Shop from './Router/Shop/Shop';
+import History from './Router/History/History';
 
 function App() {
 
@@ -56,6 +57,8 @@ function App() {
           <Route path='/signup' component={SignUp}/>
 
           <Route path='/shop' component={Shop}/>
+
+          <Route path='/history' component={History} />
 
         </Switch>
 

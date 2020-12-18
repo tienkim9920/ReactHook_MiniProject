@@ -218,7 +218,7 @@ function MainCart(props) {
 
 
     return (
-        <div className="wapper_cart">
+        <div className="wapper_cart">      
             <ListCart ListCart={cart} onUpdateCount={onUpdateCount} onDeleteCart={onDeleteCart}/>
 
             <Checkout ListCart={cart}/>

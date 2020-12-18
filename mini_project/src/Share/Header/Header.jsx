@@ -72,6 +72,9 @@ function Header(props) {
                         <li><Link to="/home">Home</Link></li>
                         <li><Link to="/shop">Shop</Link></li>
                         <li><Link to="/photo">Photo</Link></li>
+                        {
+                            idUser && <li><Link to={`/history/${idUser}`}>History</Link></li>
+                        }
                         {loginUser}
                         <div className="right-menu">
                             <Link

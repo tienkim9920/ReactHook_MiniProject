@@ -5,6 +5,7 @@ import Image from '../../Global/Image';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import MainCart from './Component/MainCart';
 import Order from './Component/Order';
+import Success from './Component/Success';
 
 Cart.propTypes = {
     
@@ -20,6 +21,8 @@ function Cart(props) {
                 <Route exact path="/cart/:id" component={MainCart} />
 
                 <Route path="/cart/:id/order" component={Order} />
+
+                <Route path="/cart/:id/success" component={Success}/>
             </Switch>
         </div>
 

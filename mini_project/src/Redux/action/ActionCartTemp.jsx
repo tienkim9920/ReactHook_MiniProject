@@ -7,10 +7,6 @@ export const addIdTemp = (data) => {
     }
 }
 
-// export const deleteIdTemp = (data) => {
-//     return 
-// }
-
 export const addCartTemp = (data) => {
     return {
         type: 'ADD_CART',
